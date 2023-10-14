@@ -14,3 +14,5 @@ vim.api.nvim_exec(
 ]],
 	true
 )
+
+vim.g.netrw_keepdir = 0
