@@ -5,6 +5,11 @@ vim.opt.termguicolors = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 
+-- Ignore case when searching with /
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+-- Jenkins file syntax
 vim.api.nvim_exec(
 	[[
   augroup JenkinsfileFileType
@@ -15,4 +20,12 @@ vim.api.nvim_exec(
 	true
 )
 
-vim.g.netrw_keepdir = 0
+-- Highlight yanked text
+local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+	group = highlight_group,
+	pattern = "*",
+})
