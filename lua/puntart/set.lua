@@ -11,6 +11,11 @@ vim.opt.cursorline = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+vim.g.netrw_banner = 0
+
+-- Trying to change the background color of the current line
+vim.api.nvim_command("highlight Visual guifg=White guibg=LightBlue gui=none")
+
 -- Jenkins file syntax
 vim.api.nvim_exec(
 	[[
