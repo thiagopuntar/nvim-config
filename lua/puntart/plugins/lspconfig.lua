@@ -37,7 +37,15 @@ return {
 			keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
 
 			opts.desc = "Smart rename"
-			keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
+			keymap.set("n", "<leader>rN", vim.lsp.buf.rename, opts) -- smart rename
+
+			function RenameFromScratch()
+				vim.ui.input({ prompt = "New Name: " }, function(input)
+					vim.lsp.buf.rename(input)
+				end)
+			end
+			opts.desc = "Rename from the scratch"
+			keymap.set("n", "<leader>rn", "<cmd>lua RenameFromScratch()<CR>", opts)
 
 			opts.desc = "Show buffer diagnostics"
 			keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
