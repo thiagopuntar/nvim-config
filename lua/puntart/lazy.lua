@@ -24,6 +24,7 @@ require("lazy").setup({
 	"tpope/vim-surround",
 	"tpope/vim-fugitive",
 	"github/copilot.vim",
+	"ThePrimeagen/vim-be-good",
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.2",

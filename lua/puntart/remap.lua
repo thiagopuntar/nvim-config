@@ -26,3 +26,8 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 -- Open oil nvim
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+vim.keymap.set("n", "<leader>no", ':lua require("impulse").menu_search()<CR>', { desc = "Open parent directory" })
+
+-- Toggle treesitter context
+vim.keymap.set("n", "<leader>tc", ":TSContextToggle<CR>", { desc = "Toggle TS Context" })
